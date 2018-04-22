@@ -4,7 +4,7 @@ title: 'PBC在Ubuntu的安装'
 subtitle: ''
 date: 2018-04-04
 categories: 笔记
-cover: 'http://on2171g4d.bkt.clouddn.com/jekyll-theme-h2o-postcover.jpg'
+cover: 'http://wx1.sinaimg.cn/large/0060OZ27gy1fqli136k8xj30h40h4jra.jpg'
 tags: PBC Linux
 ---
 
