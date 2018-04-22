@@ -51,7 +51,7 @@ postPatterns: 'overlappingCircles'
 sns:
   weibo: '//weibo.com/rzgu'
   twitter: '//twitter.com/fanqiewang'
-  email: '//zheruigu@mail.ustc.edu.cn'
+  #email: '//zheruigu@mail.ustc.edu.cn'
   github: '//github.com/rzgu'
 
 # Tags 设置标签
