@@ -1,0 +1,32 @@
+---
+layout: post
+title: 'Wpscan更新数据库时的错误解决方法'
+subtitle: 'timeout与不能解析主机地址错误'
+date: 2018-08-01
+categories: 技术
+cover: 'http://wx4.sinaimg.cn/large/0060OZ27gy1fqlul3wt22j312w0mi0wd.jpg'
+tags: Kali Wpscan
+---
+wpscan更新database的时候，出现time out错误或者不能解析主机地址错误的处理办法
+
+#1 . 不能解析主机地址
+这种情况一般是虚拟机不能上网，在vmware虚拟机中的网络配置中回复一下默认配置就行了。
+
+#2 . timeout 错误
+```python
+[!] Unable to get https://data.wpscan.org/wp_versions.xml (Timeout was reached)
+```
+首先检查提示的timeout网址在虚拟机的浏览器中能否被访问。一般wpscan的1网站需要挂载VPN才能访问。
+如何使虚拟机富强上网呢：将虚拟机的网络配置改为NAT模式。
+如何将虚拟机的网络配置改为NAT模式呢：在VMware中选择“编辑-虚拟网络编辑器-更改设置”。将网卡选为VMnet8，VMnet信息选择NAT模式。然后主机中挂载VPN时虚拟机也能富强上网了。
+
+但是使用VPN后，浏览器可以访问timeout的网址，但是update时仍然出现timeout错误。这是因为网络速度太慢，而update命令的默认连接时长为5s，就是要在5s之内建立连接，否侧报告错误。这是可以多次尝试，也许会有一次成功。也可以使用命令：
+```python
+wpscan --update --connect-timeout 10
+```
+将建立连接的时长改为10s，如果还不行，就改为20s或者更长。
+[参考连接][1]
+
+
+
+[1]: https://github.com/wpscanteam/wpscan/issues/803
